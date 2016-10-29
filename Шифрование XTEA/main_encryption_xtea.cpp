@@ -1,4 +1,4 @@
-#include "Encryption_XTEA.h"
+﻿#include "Encryption_XTEA.h"
 
 int main()
 {
@@ -24,19 +24,19 @@ int main()
 	unsigned long* InputBuf = reinterpret_cast<unsigned long*>(Buffer);
 	unsigned long OutputBuf[2];
 
-	OutputFile << hex; // èñïîëüçóåòñÿ øåñòíàäöàòåðè÷íûé âûâîä  
+	OutputFile << hex;
 	int count = 0;
  
 	while (InputFile.get(Buffer[count])) {
 		if (++count == number_bits) {
-			Encipher(InputBuf, OutputBuf, k);               // çàïîëíåíèå âåäóùèìè íóëÿìè:               
+			Encipher(InputBuf, OutputBuf, k);       
 			OutputFile << setw(8) << setfill('0') << OutputBuf[0] << ' '
 						<< setw(8) << setfill('0') << OutputBuf[1] << ' ';
 			count = 0;          
 		}     
 	}     
 	
-	if (count) { // çàïîëíåíèå           
+	if (count) {       
 		while (count != number_bits) {
 			Buffer[count++] = '0';
 		}
