@@ -3,7 +3,7 @@
 Ключ разбит на четыре части по 32 бита, общая длина ключа 128 бита. Порядок определяется выражениями `sum & 3` и  `sum >> 11 & 3`
 
 Файлы:
-<br/>main_encryption_xtea.cpp
+<br/>[main_encryption_xtea.cpp](main_encryption_xtea.cpp "main_encryption_xtea.cpp")
 <br/>Encryption_XTEA.h
 <br/>Encryption_XTEA.cpp
 
