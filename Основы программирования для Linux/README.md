@@ -139,7 +139,7 @@ __Вывлд__
 </br>
 Программа(функция в библиотеке) ничего не выводит на консоль.
 </br>
-Файлы в папке [mod_1_step_2](mod_1_step_2): [solution.c](/mod_1_step_2/solution.c) [Makefile](/mod_1_step_2/Makefile)
+Файлы в папке [mod_1_step_2](mod_1_step_2): [solution.c](mod_1_step_2/solution.c) [Makefile](mod_1_step_2/Makefile)
 
 
 </br></br></br>
