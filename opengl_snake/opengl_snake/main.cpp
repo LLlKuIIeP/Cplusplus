@@ -1,4 +1,4 @@
-﻿#include <GL\freeglut.h>
+#include <GL\freeglut.h>
 #include <time.h>
 #include <memory>
 
@@ -198,17 +198,51 @@ void key_up() {
 	player.turn = false;
 }
 
+void key_down() {
+	if (player.direction != GLUT_KEY_UP && player.turn) {
+		player.direction = GLUT_KEY_DOWN;
+	}
+
+	player.turn = false;
+}
+
+void key_left() {
+	if (player.direction != GLUT_KEY_RIGHT && player.turn) {
+		player.direction = GLUT_KEY_LEFT;
+	}
+
+	player.turn = false;
+}
+
+void key_right() {
+	if (player.direction != GLUT_KEY_LEFT && player.turn) {
+		player.direction = GLUT_KEY_RIGHT;
+	}
+
+	player.turn = false;
+}
+
 void keyboard(unsigned char key, int x, int y) {
 	switch (key) {
 		case 27: { // Esc
 			exit(0);
 		}
-		case 'w': { // w
+		case 'w': { // вверх
 			key_up();
 			break;
 		}
-
-
+		case 's': { // вниз
+			key_down();
+			break;
+		}
+		case 'a': { // налево
+			key_left();
+			break;
+		}
+		case 'd': { // направо
+			key_right();
+			break;
+		}
 		default:
 			break;
 	}
@@ -219,43 +253,19 @@ void spec_keyboard(int key, int x, int y) {
 
 	switch(key) {
 		case GLUT_KEY_UP: {
-				if(player.direction != GLUT_KEY_DOWN && player.turn) {
-					player.direction = GLUT_KEY_UP;
-				}
-
-				player.turn = false;
-				break;
-		}
-		case (int)'w': {
-			if (player.direction != GLUT_KEY_DOWN && player.turn) {
-				player.direction = GLUT_KEY_UP;
-			}
-
-			player.turn = false;
+			key_up();
 			break;
 		}
 		case GLUT_KEY_DOWN: {
-			if (player.direction != GLUT_KEY_UP && player.turn) {
-				player.direction = GLUT_KEY_DOWN;
-			}
-
-			player.turn = false;
+			key_down();
 			break;
 		}
 		case GLUT_KEY_LEFT: {
-			if (player.direction != GLUT_KEY_RIGHT && player.turn) {
-				player.direction = GLUT_KEY_LEFT;
-			}
-
-			player.turn = false;
+			key_left();
 			break;
 		}
 		case GLUT_KEY_RIGHT: {
-			if (player.direction != GLUT_KEY_LEFT && player.turn) {
-				player.direction = GLUT_KEY_RIGHT;
-			}
-
-			player.turn = false;
+			key_right();
 			break;
 		}
 		default:

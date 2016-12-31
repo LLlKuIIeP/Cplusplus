@@ -1,5 +1,5 @@
 ﻿  main.cpp
 c:\users\сергей\desktop\coursera\opengl_snake\opengl_snake\main.cpp(155): warning C4305: аргумент: усечение из "double" к "GLfloat"
-c:\users\сергей\desktop\coursera\opengl_snake\opengl_snake\main.cpp(289): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+c:\users\сергей\desktop\coursera\opengl_snake\opengl_snake\main.cpp(299): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
   opengl_snake.vcxproj -> C:\Users\Сергей\Desktop\coursera\opengl_snake\x64\Debug\opengl_snake.exe
   opengl_snake.vcxproj -> C:\Users\Сергей\Desktop\coursera\opengl_snake\x64\Debug\opengl_snake.pdb (Full PDB)
