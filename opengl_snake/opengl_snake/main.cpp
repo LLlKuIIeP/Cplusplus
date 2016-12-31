@@ -1,4 +1,4 @@
-#include <GL\freeglut.h>
+п»ї#include <GL\freeglut.h>
 #include <time.h>
 #include <memory>
 
@@ -26,12 +26,12 @@ public:
 
 class Game {
 public:
-	int delay; // задержка в мс
-	float scale; //коэфициент маштабирования внутри окна
-	int win_scale; //коэфициент маштабирования окна
-	int win_pos_x, win_pos_y; //положение окна на экране
-	int start_pos_x, start_pos_y; //стартовая позиция змейки на экране
-	int start_size; //стартовый размер змейки
+	int delay; // Р·Р°РґРµСЂР¶РєР° РІ РјСЃ
+	float scale; //РєРѕСЌС„РёС†РёРµРЅС‚ РјР°С€С‚Р°Р±РёСЂРѕРІР°РЅРёСЏ РІРЅСѓС‚СЂРё РѕРєРЅР°
+	int win_scale; //РєРѕСЌС„РёС†РёРµРЅС‚ РјР°С€С‚Р°Р±РёСЂРѕРІР°РЅРёСЏ РѕРєРЅР°
+	int win_pos_x, win_pos_y; //РїРѕР»РѕР¶РµРЅРёРµ РѕРєРЅР° РЅР° СЌРєСЂР°РЅРµ
+	int start_pos_x, start_pos_y; //СЃС‚Р°СЂС‚РѕРІР°СЏ РїРѕР·РёС†РёСЏ Р·РјРµР№РєРё РЅР° СЌРєСЂР°РЅРµ
+	int start_size; //СЃС‚Р°СЂС‚РѕРІС‹Р№ СЂР°Р·РјРµСЂ Р·РјРµР№РєРё
 
 	Game();
 
@@ -41,9 +41,9 @@ public:
 
 class Snake {
 public:
-	int direction; // в какую сторону движется змейка
-	int size; //размер змейки
-	bool turn; //флаг пворота змейки, чтобы два раза нельзя было повернуть
+	int direction; // РІ РєР°РєСѓСЋ СЃС‚РѕСЂРѕРЅСѓ РґРІРёР¶РµС‚СЃСЏ Р·РјРµР№РєР°
+	int size; //СЂР°Р·РјРµСЂ Р·РјРµР№РєРё
+	bool turn; //С„Р»Р°Рі РїРІРѕСЂРѕС‚Р° Р·РјРµР№РєРё, С‡С‚РѕР±С‹ РґРІР° СЂР°Р·Р° РЅРµР»СЊР·СЏ Р±С‹Р»Рѕ РїРѕРІРµСЂРЅСѓС‚СЊ
 	Snake();
 
 	void DrawSnake();
@@ -64,7 +64,7 @@ Game::Game() {
 	win_pos_y = 0;
 }
 
-//начальные координаты змейки
+//РЅР°С‡Р°Р»СЊРЅС‹Рµ РєРѕРѕСЂРґРёРЅР°С‚С‹ Р·РјРµР№РєРё
 void Game::init() {
 	blocks[0].x = start_pos_x;
 	blocks[0].y = start_pos_y;
@@ -77,7 +77,7 @@ Snake::Snake() {
 }
 
 
-//прорисовка змейки
+//РїСЂРѕСЂРёСЃРѕРІРєР° Р·РјРµР№РєРё
 void Snake::DrawSnake() {
 	for (auto i = 0; i < size; ++i) {
 		if (i) {
@@ -89,14 +89,14 @@ void Snake::DrawSnake() {
 	}
 }
 
-//перемещение змейки
+//РїРµСЂРµРјРµС‰РµРЅРёРµ Р·РјРµР№РєРё
 void Snake::move() {
 	for (auto i = size; i > 0; --i) {
 		blocks[i].x = blocks[i - 1].x;
 		blocks[i].y = blocks[i - 1].y;
 	}
 
-	//события по кнопкам
+	//СЃРѕР±С‹С‚РёСЏ РїРѕ РєРЅРѕРїРєР°Рј
 	switch (direction) {
 	case GLUT_KEY_UP:
 		blocks[0].y++;
@@ -114,7 +114,7 @@ void Snake::move() {
 		break;
 	}
 
-	//выход змейки за поля окна
+	//РІС‹С…РѕРґ Р·РјРµР№РєРё Р·Р° РїРѕР»СЏ РѕРєРЅР°
 	if (blocks[0].x < 0) {
 		blocks[0].x += WIDTH;
 	}
@@ -129,7 +129,7 @@ void Snake::move() {
 	}
 }
 
-//откусывает себе хвост
+//РѕС‚РєСѓСЃС‹РІР°РµС‚ СЃРµР±Рµ С…РІРѕСЃС‚
 void Snake::cut() {
 	for (auto i = 3; i < size; ++i) {
 		if (blocks[i].x == blocks[0].x && blocks[i].y == blocks[0].y) {
@@ -139,7 +139,7 @@ void Snake::cut() {
 	}
 }
 
-//змейка кушает
+//Р·РјРµР№РєР° РєСѓС€Р°РµС‚
 void Snake::eat() {
 	if (blocks[0].x == food.x && blocks[0].y == food.y) {
 		++size;
@@ -148,14 +148,14 @@ void Snake::eat() {
 }
 
 
-//отвечает за прорисовку
-// прорисовка идет через квадраты, задать квадрат можно используя 4-ре вершины
+//РѕС‚РІРµС‡Р°РµС‚ Р·Р° РїСЂРѕСЂРёСЃРѕРІРєСѓ
+// РїСЂРѕСЂРёСЃРѕРІРєР° РёРґРµС‚ С‡РµСЂРµР· РєРІР°РґСЂР°С‚С‹, Р·Р°РґР°С‚СЊ РєРІР°РґСЂР°С‚ РјРѕР¶РЅРѕ РёСЃРїРѕР»СЊР·СѓСЏ 4-СЂРµ РІРµСЂС€РёРЅС‹
 void Block::drow(bool head) {
 	if (head) {
-		glColor3f(0.745098, 0.745098, 0.745098); // цвет головы змейки
+		glColor3f(0.745098, 0.745098, 0.745098); // С†РІРµС‚ РіРѕР»РѕРІС‹ Р·РјРµР№РєРё
 	}
 	else {
-		glColor3f(1, 1, 1); // цвет остальной змейки
+		glColor3f(1, 1, 1); // С†РІРµС‚ РѕСЃС‚Р°Р»СЊРЅРѕР№ Р·РјРµР№РєРё
 	}
 	glVertex2f(x * settings.scale, y * settings.scale); //
 	glVertex2f(x * settings.scale + settings.scale, y * settings.scale);
@@ -164,7 +164,7 @@ void Block::drow(bool head) {
 }
 
 void Food::draw_food() {
-	glColor3f(0, 0, 1); // цвет еды
+	glColor3f(0, 0, 1); // С†РІРµС‚ РµРґС‹
 	glVertex2f(x * settings.scale, y * settings.scale); //
 	glVertex2f(x * settings.scale + settings.scale, y * settings.scale);
 	glVertex2f(x * settings.scale + settings.scale, y * settings.scale + settings.scale);
@@ -173,21 +173,21 @@ void Food::draw_food() {
 
 
 void Food::spawn() {
-	// рандомные координаты спавна еды по оси x и y, не выходищие за края поля
+	// СЂР°РЅРґРѕРјРЅС‹Рµ РєРѕРѕСЂРґРёРЅР°С‚С‹ СЃРїР°РІРЅР° РµРґС‹ РїРѕ РѕСЃРё x Рё y, РЅРµ РІС‹С…РѕРґРёС‰РёРµ Р·Р° РєСЂР°СЏ РїРѕР»СЏ
 	x = (rand() % WIDTH);
 	y = (rand() % HEIGHT);
 
-	// проверка, что еда не спавнится на змейке
+	// РїСЂРѕРІРµСЂРєР°, С‡С‚Рѕ РµРґР° РЅРµ СЃРїР°РІРЅРёС‚СЃСЏ РЅР° Р·РјРµР№РєРµ
 	for (auto i = 0; i < player.size; ++i) {
 		if (x == blocks[i].x && y == blocks[i].y) {
-			spawn(); //рекурсивный вызов самой себя, если еда появилась на змейке
+			spawn(); //СЂРµРєСѓСЂСЃРёРІРЅС‹Р№ РІС‹Р·РѕРІ СЃР°РјРѕР№ СЃРµР±СЏ, РµСЃР»Рё РµРґР° РїРѕСЏРІРёР»Р°СЃСЊ РЅР° Р·РјРµР№РєРµ
 		}
 	}
 }
 
 
 /*==============================================
-	Обработка событий клавиатуры
+	РћР±СЂР°Р±РѕС‚РєР° СЃРѕР±С‹С‚РёР№ РєР»Р°РІРёР°С‚СѓСЂС‹
 ===============================================*/
 
 void key_up() {
@@ -263,20 +263,20 @@ void spec_keyboard(int key, int x, int y) {
 	}
 }
 
-//функция таймера
+//С„СѓРЅРєС†РёСЏ С‚Р°Р№РјРµСЂР°
 void Timer(int value) {
 	player.turn = true;
 	player.move();
 	player.cut();
 	player.eat();
-	glutPostRedisplay(); //перерисовать
+	glutPostRedisplay(); //РїРµСЂРµСЂРёСЃРѕРІР°С‚СЊ
 	glutTimerFunc(settings.delay, Timer, 0);
 }
 
-//функция прорисовки змейки
+//С„СѓРЅРєС†РёСЏ РїСЂРѕСЂРёСЃРѕРІРєРё Р·РјРµР№РєРё
 void draw() {
-	glClear(GL_COLOR_BUFFER_BIT); // очистить буфер цветов
-	glBegin(GL_QUADS); // задаем не просто 4 точки а цельный четырехугольник
+	glClear(GL_COLOR_BUFFER_BIT); // РѕС‡РёСЃС‚РёС‚СЊ Р±СѓС„РµСЂ С†РІРµС‚РѕРІ
+	glBegin(GL_QUADS); // Р·Р°РґР°РµРј РЅРµ РїСЂРѕСЃС‚Рѕ 4 С‚РѕС‡РєРё Р° С†РµР»СЊРЅС‹Р№ С‡РµС‚С‹СЂРµС…СѓРіРѕР»СЊРЅРёРє
 	food.draw_food();
 	player.DrawSnake();
 	glEnd();
@@ -287,19 +287,19 @@ int main(int argc, char *argv[]) {
 	settings.init();
 	food.spawn();
 	srand(time(NULL));
-	glutInit(&argc, argv); //инициализация opengl
-	glutInitDisplayMode(GLUT_RGB); // цвет, количество буферов экрана
-	glutInitWindowSize(WIDTH * settings.win_scale, HEIGHT * settings.win_scale); //размеры окна, ширина и высота в пикселях
-	glutInitWindowPosition(settings.win_pos_x, settings.win_pos_y); //положение окна на экране
-	glutCreateWindow("***Snake***"); //создает окно и заголовком в качестве параметра
-	glutDisplayFunc(draw); //отвечает за то, что будет тображено на окне
-	glutTimerFunc(settings.delay, Timer, 0); //1-отрисовка каждые n миллисекунд(задержка), 2 - имя функци в которой будут происходить вычисления, 3 - параметр функции 2го аргумента
-	glutKeyboardFunc(keyboard); // обработка событий нажатия на клавиатуру
-	glutSpecialFunc(spec_keyboard); // отвечает за клавиатуру(спецклавиши F1-F12 стрелки и т.д.)
-	glMatrixMode(GL_PROJECTION); //задает способ отображения в плоскую картинку
-	glLoadIdentity(); //очистка матрицы
-	glOrtho(0, WIDTH, 0 , HEIGHT, -1, 1); //задаем систему отчета внутри нашего нового окна
-	glutMainLoop(); //запускает
+	glutInit(&argc, argv); //РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ opengl
+	glutInitDisplayMode(GLUT_RGB); // С†РІРµС‚, РєРѕР»РёС‡РµСЃС‚РІРѕ Р±СѓС„РµСЂРѕРІ СЌРєСЂР°РЅР°
+	glutInitWindowSize(WIDTH * settings.win_scale, HEIGHT * settings.win_scale); //СЂР°Р·РјРµСЂС‹ РѕРєРЅР°, С€РёСЂРёРЅР° Рё РІС‹СЃРѕС‚Р° РІ РїРёРєСЃРµР»СЏС…
+	glutInitWindowPosition(settings.win_pos_x, settings.win_pos_y); //РїРѕР»РѕР¶РµРЅРёРµ РѕРєРЅР° РЅР° СЌРєСЂР°РЅРµ
+	glutCreateWindow("***Snake***"); //СЃРѕР·РґР°РµС‚ РѕРєРЅРѕ Рё Р·Р°РіРѕР»РѕРІРєРѕРј РІ РєР°С‡РµСЃС‚РІРµ РїР°СЂР°РјРµС‚СЂР°
+	glutDisplayFunc(draw); //РѕС‚РІРµС‡Р°РµС‚ Р·Р° С‚Рѕ, С‡С‚Рѕ Р±СѓРґРµС‚ С‚РѕР±СЂР°Р¶РµРЅРѕ РЅР° РѕРєРЅРµ
+	glutTimerFunc(settings.delay, Timer, 0); //1-РѕС‚СЂРёСЃРѕРІРєР° РєР°Р¶РґС‹Рµ n РјРёР»Р»РёСЃРµРєСѓРЅРґ(Р·Р°РґРµСЂР¶РєР°), 2 - РёРјСЏ С„СѓРЅРєС†Рё РІ РєРѕС‚РѕСЂРѕР№ Р±СѓРґСѓС‚ РїСЂРѕРёСЃС…РѕРґРёС‚СЊ РІС‹С‡РёСЃР»РµРЅРёСЏ, 3 - РїР°СЂР°РјРµС‚СЂ С„СѓРЅРєС†РёРё 2РіРѕ Р°СЂРіСѓРјРµРЅС‚Р°
+	glutKeyboardFunc(keyboard); // РѕР±СЂР°Р±РѕС‚РєР° СЃРѕР±С‹С‚РёР№ РЅР°Р¶Р°С‚РёСЏ РЅР° РєР»Р°РІРёР°С‚СѓСЂСѓ
+	glutSpecialFunc(spec_keyboard); // РѕС‚РІРµС‡Р°РµС‚ Р·Р° РєР»Р°РІРёР°С‚СѓСЂСѓ(СЃРїРµС†РєР»Р°РІРёС€Рё F1-F12 СЃС‚СЂРµР»РєРё Рё С‚.Рґ.)
+	glMatrixMode(GL_PROJECTION); //Р·Р°РґР°РµС‚ СЃРїРѕСЃРѕР± РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ РІ РїР»РѕСЃРєСѓСЋ РєР°СЂС‚РёРЅРєСѓ
+	glLoadIdentity(); //РѕС‡РёСЃС‚РєР° РјР°С‚СЂРёС†С‹
+	glOrtho(0, WIDTH, 0 , HEIGHT, -1, 1); //Р·Р°РґР°РµРј СЃРёСЃС‚РµРјСѓ РѕС‚С‡РµС‚Р° РІРЅСѓС‚СЂРё РЅР°С€РµРіРѕ РЅРѕРІРѕРіРѕ РѕРєРЅР°
+	glutMainLoop(); //Р·Р°РїСѓСЃРєР°РµС‚
 
 
 	return 0;
