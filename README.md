@@ -4,4 +4,6 @@
 
 **[<type_trains>](type_trains.md)** - поддержка типов<br>
 **[decltype](decltype.md)** - оператор decltype<br>
-**[переменное число параметров](arguments.md)**<br>
+**[arguments](arguments.md)** - переменное число параметров<br>
+**[function](function.md)** - указатели на функции<br>
+**[constexpr](constexpr.md)** - константы компиляции<br>
