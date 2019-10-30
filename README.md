@@ -28,7 +28,7 @@ struct has_##FIELD\
     static std::false_type  check(long);\
     
 \
-    using value = decltype(check<T>(0));\
+    using value = decltype(check< T >(0));\
     
 };
 
