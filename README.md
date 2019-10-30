@@ -11,16 +11,25 @@
 
 #include <type_traits>
 
-#define DECLARE_has(FIELD)\\
-template<typename T>\\
-struct has_##FIELD\\
-{\\
-    template<typename U, typename = decltype(U::FIELD)>\\
-    static std::true_type   check(int);\\
+#define DECLARE_has(FIELD)\
+
+template<typename T>\
+    
+struct has_##FIELD\
+
+{\
+
+    template<typename U, typename = decltype(U::FIELD)>\
+    
+    static std::true_type   check(int);\
+    
     template<typename U>\
-    static std::false_type  check(long);\\
-\\
-    using value = decltype(check<T>(0));\\
+    
+    static std::false_type  check(long);\
+    
+\
+    using value = decltype(check<T>(0));\
+    
 };
 
 struct x {};
