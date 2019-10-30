@@ -8,28 +8,19 @@
 **[\<function>](function.md)** - указатели на функции<br>
 **[constexpr](constexpr.md)** - константы компиляции<br>
 
-
+```
 #include <type_traits>
-
 #define DECLARE_has(FIELD)\
-
 template<typename T>\
-    
 struct has_##FIELD\
-
 {\
-
     template<typename U, typename = decltype(U::FIELD)>\
-    
     static std::true_type   check(int);\
     
     template<typename U>\
-    
     static std::false_type  check(long);\
-    
 \
     using value = decltype(check< T >(0));\
-    
 };
 
 struct x {};
@@ -39,3 +30,4 @@ DECLARE_has(jopa)
 
 static_assert(std::is_same_v<has_jopa<y>::value, std::true_type>);
 static_assert(std::is_same_v<has_jopa<x>::value, std::false_type>);
+```
