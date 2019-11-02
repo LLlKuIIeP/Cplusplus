@@ -31,3 +31,22 @@ DECLARE_has(jopa)
 static_assert(std::is_same_v<has_jopa<y>::value, std::true_type>);
 static_assert(std::is_same_v<has_jopa<x>::value, std::false_type>);
 ```
+
+
+optional
+```
+std::optional<int> foo()
+{
+
+    return std::optional {1}; // std::nullopt;
+}
+
+auto opt = foo();
+if(opt) {
+}
+else /*nullopt*/{
+}
+
+//задать дефолтное значение auto res = opt.value_or({});
+
+```
