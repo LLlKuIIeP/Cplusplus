@@ -7,6 +7,7 @@
 **[arguments](arguments.md)** - переменное число параметров<br>
 **[\<function>](function.md)** - указатели на функции<br>
 **[constexpr](constexpr.md)** - константы компиляции<br>
+**[\<any>](any.md)** - если ли элементв в контейнере<br>
 
 ```
 #include <type_traits>
