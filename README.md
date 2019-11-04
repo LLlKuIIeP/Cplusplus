@@ -8,7 +8,7 @@
 **[\<function>](function.md)** - указатели на функции<br>
 **[constexpr](constexpr.md)** - константы компиляции<br>
 **[\<any>](any.md)** - если ли элементв в контейнере<br>
-**[\count](count.md)** - количесво элементов<br>
+**[count](count.md)** - количесво элементов<br>
 ```
 #include <type_traits>
 #define DECLARE_has(FIELD)\
@@ -17,7 +17,7 @@ struct has_##FIELD\
 {\
     template<typename U, typename = decltype(U::FIELD)>\
     static std::true_type   check(int);\
-    
+
     template<typename U>\
     static std::false_type  check(long);\
 \
