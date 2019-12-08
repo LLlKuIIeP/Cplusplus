@@ -19,7 +19,8 @@ sudo apt-get install \
   qml-module-qtquick-templates2 \
   qml-module-qt-labs-folderlistmodel \
   qml-module-qt-labs-settings \
-  qml-module-qt-labs-platform -y
+  qml-module-qt-labs-platform \
+  python3-sphinx -y
 
 # extra-cmake-modules
 git clone --recurse-submodules https://github.com/KDE/extra-cmake-modules.git
