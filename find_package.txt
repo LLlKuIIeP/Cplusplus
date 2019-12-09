@@ -1,0 +1,14 @@
+The package folly:x64-windows provides CMake targets:
+
+    find_package(folly CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE Folly::folly Folly::folly_deps Folly::follybenchmark Folly::folly_test_util)
+	
+The package fizz:x64-windows provides CMake targets:
+
+    find_package(fizz CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE fizz::fizz)
+	
+The package wangle is compatible with built-in CMake targets:
+
+    find_package(wangle REQUIRED)
+    target_link_libraries(main PRIVATE wangle::wangle)
