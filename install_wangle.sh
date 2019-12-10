@@ -28,7 +28,7 @@ sudo apt-get install \
 #!fmt
 cd ~/
 git clone --recursive https://github.com/fmtlib/fmt.git
-cd fmt/makmake install
+cd fmt install
 cmake .
 make -j8
 sudo make install
@@ -36,7 +36,7 @@ sudo make install
 #!folly
 cd ~/
 git clone --recursive https://github.com/facebook/folly.git
-cd fmt/
+cd folly/
 cmake .
 make -j8
 sudo make install
