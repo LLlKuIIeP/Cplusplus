@@ -28,7 +28,7 @@ sudo apt-get install \
 #!fmt
 cd ~/
 git clone --recursive https://github.com/fmtlib/fmt.git
-cd fmt install
+cd fmt/
 cmake .
 make -j8
 sudo make install
