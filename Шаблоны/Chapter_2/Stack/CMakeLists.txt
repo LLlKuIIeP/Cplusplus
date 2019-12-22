@@ -7,6 +7,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(HEADERS
     Stack.hpp
+    Stack1.hpp
+    StackPartSpec.hpp
 )
 
 add_executable(${PROJECT_NAME} main.cpp ${HEADERS})

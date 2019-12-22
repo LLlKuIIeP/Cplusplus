@@ -1,8 +1,9 @@
 #include <iostream>
 #include <Stack.hpp>
+#include <Stack1.hpp>
+#include <StackPartSpec.hpp>
 
-
-int main()
+int main(int argc, char* argv[])
 {
     std::cout << "Hello World!" << std::endl;
 
