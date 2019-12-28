@@ -9,6 +9,7 @@ set(HEADERS
     Stack.hpp
     Stack1.hpp
     StackPartSpec.hpp
+    stack3.hpp
 )
 
 add_executable(${PROJECT_NAME} main.cpp ${HEADERS})
