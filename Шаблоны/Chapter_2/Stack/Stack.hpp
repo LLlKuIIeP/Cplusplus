@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <vector>
+#include <string>
 #include <cassert>
 
 
@@ -41,6 +42,9 @@ public:
     friend std::ostream& operator<< <T>(std::ostream& strm, Stack<T> const& s); // параметр Т после оператора означает специализацию шаблона
     void printOn(std::ostream& strm) const noexcept;
 };
+
+// вывод определенного типа
+Stack(char const*) -> Stack<std::string>;
 
 template<typename T>
 std::ostream& operator<<(std::ostream& strm, Stack<T> const& s)
