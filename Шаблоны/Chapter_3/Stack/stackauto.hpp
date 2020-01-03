@@ -1,13 +1,15 @@
-// 3.1
+// 3.4
 #pragma once
 #include <array>
 #include <cassert>
 
 
-template<typename T, std::size_t Maxsize>
+template<typename T, auto Maxsize>
 class Stack
 {
 public:
+    using size_type = decltype (Maxsize);
+
     Stack();
     void push(T const& elem);
     void pop();
@@ -16,19 +18,20 @@ public:
     {
         return numElems == 0;
     }
-    std::size_t size() const{
+    size_type size() const
+    {
         return numElems;
     }
 
 private:
     std::array<T, Maxsize> elems;
-    std::size_t numElems;
+    size_type numElems;
 };
 
-template<typename T, std::size_t Maxsize>
+template<typename T, auto Maxsize>
 Stack<T, Maxsize>::Stack() : numElems(0) {}
 
-template<typename T, std::size_t Maxsize>
+template<typename T, auto Maxsize>
 void Stack<T, Maxsize>::push(T const& elem)
 {
     assert(numElems < Maxsize);
@@ -36,14 +39,14 @@ void Stack<T, Maxsize>::push(T const& elem)
     ++numElems;
 }
 
-template<typename T, std::size_t Maxsize>
+template<typename T, auto Maxsize>
 void Stack<T, Maxsize>::pop()
 {
     assert(!empty());
     --numElems;
 }
 
-template<typename T, std::size_t Maxsize>
+template<typename T, auto Maxsize>
 T const& Stack<T, Maxsize>::top() const
 {
     assert(!empty());
