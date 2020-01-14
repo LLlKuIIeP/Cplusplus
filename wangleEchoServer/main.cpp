@@ -17,7 +17,7 @@ public:
     void read(Context *ctx, std::string msg) override
     {
         std::cout << "EchoHandler: " << msg << std::endl;
-        //write(ctx, msg + "\r\n");
+        write(ctx, msg + "\r\n");
     }
 };
 
@@ -31,7 +31,6 @@ public:
         pipeline->addBack(wangle::LineBasedFrameDecoder(8192));
         pipeline->addBack(wangle::StringCodec());
         pipeline->addBack(EchoHandler());
-        pipeline->addBack(EchoHandler_2());
         pipeline->finalize();
 
         return pipeline;
