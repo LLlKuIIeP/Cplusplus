@@ -7,7 +7,7 @@ sudo ufw app list
 sudo ufw allow 'Nginx HTTP'
 sudo ufw status
 
-systemctl status nginx
+#systemctl status nginx
 
 sudo mkdir -p /var/www/doxygen
 sudo chown -R $USER:$USER /var/www/doxygen
