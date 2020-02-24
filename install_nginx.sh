@@ -13,7 +13,9 @@ sudo mkdir -p /var/www/doxygen
 sudo chown -R $USER:$USER /var/www/doxygen
 sudo chmod a+rwx -R /var/www/doxygen
 
-sudo echo -e "#log_format simple '$remote_addr $request $status';\n" > /etc/nginx/sites-available/doxygen
+sudo touch /etc/nginx/sites-available/doxygen
+sudo chmod a+rw /etc/nginx/sites-available/doxygen
+sudo echo -e "#log_format simple '\$remote_addr \$request \$status';\n" > /etc/nginx/sites-available/doxygen
 sudo echo -e "server {\n" >> /etc/nginx/sites-available/doxygen
 sudo echo -e "\tlisten 80;\n" >> /etc/nginx/sites-available/doxygen
 sudo echo -e "\tlisten [::]:80;\n\n" >> /etc/nginx/sites-available/doxygen
@@ -40,4 +42,3 @@ sudo touch /var/www/doxygen/peaq/index.html
 sudo chmod a+rwx -R /var/www/doxygen
 
 sudo echo -e "<h1>\nHello peaq\n</h1>" > /var/www/doxygen/peaq/index.html
-
