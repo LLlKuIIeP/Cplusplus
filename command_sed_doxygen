@@ -1,0 +1,5 @@
+s!OUTPUT_DIRECTORY       =!OUTPUT_DIRECTORY       = /var/www/doxygen/peaq!
+s!RECURSIVE              = NO!RECURSIVE              = YES!
+s!INPUT                  =!INPUT                  = /home/user/czmqpp!
+s!EXTRACT_PRIVATE        = NO!EXTRACT_PRIVATE        = YES!
+s!HTML_OUTPUT            = html!HTML_OUTPUT            = doc!

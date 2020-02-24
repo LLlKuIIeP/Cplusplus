@@ -1,0 +1,33 @@
+log_format simple '$request $status $request_uri $uri $request_filename';
+log_format ser '$request';
+log_format jsss '$status $request $request_uri';
+
+server {
+	listen 80;
+	listen [::]:80;
+
+	index index.html index.htm index.nginx-debian.html;
+
+	server_name 192.168.0.10;
+
+#	error_log /var/log/nginx/error.log info;
+	access_log /var/log/nginx/access.log ser;
+
+	location /doxygen/ {
+	#	access_log /var/log/nginx/access.log simple;
+		#rewrite /(.*) /$1/html break;
+		root /var/www/;
+		#access_log /var/log/nginx/access.log simple;
+		index index.html index.htm;
+		try_files $uri $uri/ $uri/index.html =404;
+		access_log /var/log/nginx/access.log simple;
+	}
+
+#	location ~* /doxygen/.*\.(js|css|png)$ {
+
+#		access_log /var/log/nginx/access.log jsss;
+#		root /var/www/;
+#		try_files $uri $uri/;
+	
+#	}
+}
