@@ -36,7 +36,7 @@ sudo nginx -t
 sudo systemctl restart nginx
 
 sudo mkdir /var/www/doxygen/peaq/
-touch /var/www/doxygen/peaq/index.html
+sudo touch /var/www/doxygen/peaq/index.html
 sudo chmod a+rwx -R /var/www/doxygen
 
 sudo echo -e "<h1>\nHello peaq\n</h1>" > /var/www/doxygen/peaq/index.html
