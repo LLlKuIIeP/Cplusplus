@@ -10,7 +10,7 @@ sudo ufw status
 systemctl status nginx
 
 sudo mkdir -p /var/www/doxygen
-sudo chowm -R $USER:$USER /var/www/doxygen
+sudo chown -R $USER:$USER /var/www/doxygen
 sudo chmod a+rwx -R /var/www/doxygen
 
 sudo echo -e "#log_format simple '$remote_addr $request $status';\n" > /etc/nginx/sites-available/doxygen
