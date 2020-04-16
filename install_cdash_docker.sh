@@ -16,6 +16,14 @@ sudo curl -L https://github.com/docker/compose/releases/download/${VERSION}/dock
 sudo chmod +x $DESTINATION
 docker-compose --version
 
+echo -r "\n\n\tinstall NPM\n"
+sudo curl https://www.npmjs.com/install.sh | sudo sh
+
+sudo npm install -g node-pre-gyp
+sudo ng init
+sudo npm i
+sudo npm audit fix
+
 echo -e "\n\n\tbuild and run cdash-docker\n"
 cd ~/
 git clone https://github.com/Kitware/CDash.git
